@@ -1,6 +1,5 @@
 const router = require('express').Router();
 
-// autoration
 const withAuth = require('../utils/auth');
 
 // gets all blog posts
@@ -15,6 +14,7 @@ router.get('/', async (req, res)=> {
                 },
             ],
         });
+        
         // Serialize data so handle bars can read it
         const blogPosts = blogData.map((posts)=> posts.get({ plain: true }));
 
@@ -56,7 +56,7 @@ router.get('/dashboard/:id', async (req, res)=> {
 router.get('/dashboard', withAuth, async (req, res)=>{
     try{
         // find the logged in user with session ID
-        const userData = await User.findByPk(req.session.user_id. {
+        const userData = await User.findByPk(req.session.user_id, {
             attributes: { exlude: ['password']},
             include: [{ model: Blog }],
         });
@@ -71,3 +71,5 @@ router.get('/dashboard', withAuth, async (req, res)=>{
         res.status(500).json(err);
     }
 });
+
+module.exports = router;
