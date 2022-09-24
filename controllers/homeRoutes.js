@@ -3,6 +3,7 @@ const router = require('express').Router();
 // autoration
 const withAuth = require('../utils/auth');
 
+// gets all blog posts
 router.get('/', async (req, res)=> {
     try {
         // GET all blog post and JOIN with user data
@@ -28,6 +29,7 @@ router.get('/', async (req, res)=> {
     }
 });
 
+// gets a specific blog post
 router.get('/dashboard/:id', async (req, res)=> {
     try{
         const blogData = await Blog.findByPk(req.params.id, {
@@ -46,6 +48,26 @@ router.get('/dashboard/:id', async (req, res)=> {
             logged_in: req.session.logged_in
         });
     } catch (err){
+        res.status(500).json(err);
+    }
+});
+
+// Use withAuth middleware to prevent access to route
+router.get('/dashboard', withAuth, async (req, res)=>{
+    try{
+        // find the logged in user with session ID
+        const userData = await User.findByPk(req.session.user_id. {
+            attributes: { exlude: ['password']},
+            include: [{ model: Blog }],
+        });
+
+        const user = userData.get({ plain: true });
+
+        res.render('dashboard', {
+            ...user,
+            logged_in: true
+        });
+    } catch(err){
         res.status(500).json(err);
     }
 });
