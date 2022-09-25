@@ -1,4 +1,4 @@
-const { Blog } =require('../models');
+const { Blog } = require('../models');
  
 const blogData = [
     {
@@ -13,4 +13,8 @@ const blogData = [
         blog_name: "Object-Relational Mapping",
         blog_description: "I have really loved learning about ORMs. It's really simplified the way I create queries in SQL!"
     }
-]
+];
+
+const seedBlog = ()=> Blog.bulkCreate(blogData);
+
+module.exports = seedBlog;
