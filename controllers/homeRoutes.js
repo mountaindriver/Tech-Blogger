@@ -49,13 +49,13 @@ router.get('/post/:id', async (req, res) => {
                 },
                 {
                     model: Comments,
-                    // include: [
-                    //     {
-                    //         model: User,
-                    //         attributes: ['name'],
-                    //     },
-                    // ],
-                },
+                    include: [
+                        {
+                            model: User,
+                            attributes: ['name'],
+                        },
+                    ]
+                }
             ],
         })
         const blog = blogData.get({ plain: true });
