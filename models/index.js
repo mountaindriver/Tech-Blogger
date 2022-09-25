@@ -13,11 +13,13 @@ Blog.hasMany(Comments, {
     foreignKey: 'blog_id',
 });
 
+// Users can have many blog posts
 User.hasMany(Blog, {
     foreignKey: 'user_id',
     onDelete: 'CASCADE'
 });
 
+// blog post belong to only one user
 Blog.belongsTo(User, {
     foreignKey: 'user_id'
 })
@@ -25,4 +27,5 @@ Blog.belongsTo(User, {
 module.exports = {
     Blog,
     Comments,
+    User,
 };
