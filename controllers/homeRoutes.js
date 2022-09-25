@@ -18,7 +18,6 @@ router.get('/', async (req, res)=> {
         // Serialize data so handle bars can read it
         const blogPosts = blogData.map((posts)=> posts.get({ plain: true }));
 
-
         // the response is to render the page with serialized data
         res.render('homepage', {
             blogPosts,
