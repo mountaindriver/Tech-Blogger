@@ -1,0 +1,8 @@
+{{#each blogPosts as |blog| }}
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <a href="dashboard/{{blog.id}}"></a><h5 class="card-title">{{blog.name}}</h5>
+    <p class="card-text">{{blog.description}}</p>
+  </div>
+</div>
+{{/each}}

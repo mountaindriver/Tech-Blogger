@@ -1,14 +1,18 @@
 [
     {
         "blog_id": 1,
-        "comments": "This is a comment for the MVC blog post"
+        "comments": "This is a comment for the MVC blog post",
+        "user_id": 1
     },
     {
         "blog_id": 2,
-        "comments": "This is a comment for the Authorization vs. Authantification"
+        "comments": "This is a comment for the Authorization vs. Authantification",
+        "user_id": 1
+
     },
     {
         "blog_id": 3,
-        "comments": "This is a comment for the OPP blog post"
+        "comments": "This is a comment for the OPP blog post",
+        "user_id": 1
     }
 ]

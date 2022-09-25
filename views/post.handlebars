@@ -1,0 +1,12 @@
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <a href="dashboard/{{blog.id}}"></a><h5 class="card-title">{{blog.name}}</h5>
+    <p class="card-text">{{blog.description}}</p>
+    <p>Created by: {{blog.user.name}}</p>
+  </div>
+</div>
+<div class="">
+    {{#each blog.comments as |comment|}}
+        <p>{{comment.comments}}</p>
+    {{/each}}
+</div>
