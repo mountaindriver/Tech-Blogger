@@ -1,18 +1,18 @@
 // import models
 const Blog = require('./Blog');
-const Comment = require('./Comment')
+const Comments = require('./Comments')
 
 // comment belongs to Blog
-Comment.belongsTo(Blog, {
+Comments.belongsTo(Blog, {
     foreign: 'blog_id',
 });
 
 // Blog can have many comments
-Blog.hasMany(Comment, {
+Blog.hasMany(Comments, {
     foreignKey: 'blog_id',
 });
 
 module.exports = {
     Blog,
-    Comment,
+    Comments,
 };
