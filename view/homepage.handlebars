@@ -1,1 +1,7 @@
-<h1>Hello World</h1>
+{{#each blog as |blogPost| }}
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <a href="dashboard/{{blog_id}}"></a><h5 class="card-title">{{blog.name}}</h5>
+    <p class="card-text">{{blog.description}}</p>
+  </div>
+</div>

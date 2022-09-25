@@ -1,4 +1,5 @@
 const seedBlog = require('./blog-seeds.js');
+const seedComments = require('./comments-seeds')
 
 const sequelize = require('../config/connection');
 
@@ -8,7 +9,7 @@ const seedAll = async ()=>{
     await seedBlog();
     console.log('\n----CATEGORIES SEEDED ----\n');
 
-    await seedCommentS();
+    await seedComments();
     console.log('\n ---- COMMENTS SEEDED ----');
 
     process.exit(0);
