@@ -39,7 +39,7 @@ router.get('/', async (req, res) => {
 });
 
 // gets a specific blog post
-router.get('/post/:id',withAuth, async (req, res) => {
+router.get('/post/:id', withAuth, async (req, res) => {
     try {
         if (!req.session.logged_in) {
             res.redirect('/login');
@@ -77,21 +77,26 @@ router.get('/post/:id',withAuth, async (req, res) => {
 // Use withAuth middleware to prevent access to route
 router.get('/dashboard', withAuth, async (req, res) => {
     try {
-        if (!req.session.logged_in) {
-            res.redirect('/');
-            return;
-        }
-        // find the logged in user with session ID
-        const userData = await User.findByPk(req.session.user_id, {
-            attributes: { exlude: ['password'] },
-            include: [{ model: Blog }],
-        });
+        const blogData = await Blog.findAll({
+            where: {
+                user_id: req.session.user_id
+            },
+              include: [
+                {
+                  model: User,
+                  attributes: ["id", "name"]
+                },
+                {
+                    model: Comments,
+                },
+           ]
+        })
 
-        const user = userData.get({ plain: true });
-
+        // const blog = blogData.map((blog)=> blog.get({ plain: true }));
+        // console.log(blog);
         res.render('dashboard', {
-            user,
-            logged_in: true
+            // blog,
+            logged_in: req.session.logged_in
         });
 
     } catch (err) {

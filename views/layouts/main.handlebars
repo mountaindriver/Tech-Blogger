@@ -15,9 +15,9 @@
       <nav>
         <ul class="btn-group">
           <a class="btn btn-secondary border m-2 rounded-pill p-3" href="/">Home</a>
-          <a class="btn btn-secondary border m-2 rounded-pill p-3" href="/dashboard">Dashboard</a>
           {{#if logged_in}}
-          <a id="logout" class="btn btn-secondary border m-2 rounded-pill p-3" href="/">Logout</a>
+          <a class="btn btn-secondary border m-2 rounded-pill p-3" href="/dashboard">Dashboard</a>
+          <a id="logout" class="btn btn-secondary border m-2 rounded-pill p-3" href="">Logout</a>
           {{else}}
           <a class="btn btn-secondary border m-2 rounded-pill p-3" href="/login">Login</a>
           {{/if}}
@@ -39,7 +39,7 @@
 
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
-  <script src="../../public/js/logout.js"></script>
+  <script src="/js/logout.js"></script>
   {{/if}}
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
