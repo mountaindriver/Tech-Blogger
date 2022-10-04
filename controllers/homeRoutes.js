@@ -27,7 +27,7 @@ router.get('/', async (req, res) => {
 
         // Serialize data so handle bars can read it
         const blogPosts = blogData.map((posts) => posts.get({ plain: true }));
-
+        console.log(blogPosts);
         // the response is to render the page with serialized data
         res.render('homepage', {
             blogPosts,
@@ -64,7 +64,7 @@ router.get('/post/:id', withAuth, async (req, res) => {
             ],
         })
         const blog = blogData.get({ plain: true });
-
+        console.log(blog)
         res.render('post', {
             blog,
             logged_in: req.session.logged_in
@@ -112,5 +112,20 @@ router.get('/login', (req, res) => {
     }
     res.render('login');
 });
+
+router.post('/comment', async (req, res)=>{
+   const user_id = req.session.user_id;
+   req.body.user_id = user_id
+   console.log(req.body);
+    try{
+    const newComment = await Comments.create({
+        ...req.body,
+        user_id: req.session.user_id,
+    });
+    res.status(200).json(newComment);
+   } catch (err){
+    res.status(400).json(err);
+   }
+})
 
 module.exports = router;

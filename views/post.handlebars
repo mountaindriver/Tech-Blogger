@@ -1,12 +1,22 @@
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-    <a href="dashboard/{{blog.id}}"></a><h5 class="card-title">{{blog.name}}</h5>
-    <p class="card-text">{{blog.description}}</p>
-    <p>Created by: {{blog.user.name}}</p>
+<div class="card m-2 bg-success">
+  <a href="dashboard/{{blog.id}}"></a>
+  <h5 class="font-weight-bolder text-dark bg-white p-1">{{blog.name}}</h5>
+  <p class="text-white">{{blog.description}}</p>
+  <p class="text-white">Created by: {{blog.user.name}}</p>
+  <p class="text-white">{{blog.createdAt}}</p>
+</div>
+<div class="card m-2 bg-success">
+  {{#each blog.comments as |comment|}}
+  <div class="text-dark bg-light p-1 m-2" style="width: 18rem;">
+    <p>{{comment.comments}}</p>
+    <p class="font-weight-bold">By {{comment.user.name}}</p>
   </div>
+  {{/each}}
 </div>
-<div class="">
-    {{#each blog.comments as |comment|}}
-        <p>{{comment.comments}}</p>
-    {{/each}}
+<div class="ml-2">
+  <textarea name="comment" id="comment" cols="35" rows="3"></textarea>
+  <br>
+  <button id="leaveComment" class="btn btn-success">Leave a comment</button>
 </div>
+
+<script src="/js/comment.js"></script>
