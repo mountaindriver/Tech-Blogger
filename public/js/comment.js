@@ -12,4 +12,23 @@ const leaveComment = async (event) => {
     window.location.reload();
 }
 
+const deletePost = async (event) => {
+    if (event.target.hasAttribute('data-id')) {
+        const id = event.target.getAttribute('data-id');
+        
+        const response = await fetch(`/${id}`, {
+            method: 'DELETE',
+        });
+
+        if (response.ok) {
+            document.location.replace('/dashboard');
+        } else {
+            alert('Failed to delete Blog post');
+        }
+    } else {
+        console.log('something went wrong')
+    }
+}
+
 document.querySelector('#leaveComment').addEventListener('click', leaveComment);
+document.querySelector('#deletePost').addEventListener('click', deletePost);

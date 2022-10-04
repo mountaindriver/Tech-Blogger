@@ -4,6 +4,7 @@
   <p class="text-white">{{blog.description}}</p>
   <p class="text-white">By: {{blog.user.name}}</p>
   <p class="text-white">{{blog.createdAt}}</p>
+  <button id="deletePost" type="button" class="btn btn-danger" data-id="{{blog.id}}">Delete Blog Post</button>
 </div>
 
 {{#if blog.comments}}
@@ -12,7 +13,7 @@
   <div class="text-dark bg-light p-1 m-2" >
     <p>{{comment.comments}}</p>
     <p class="font-weight-bold">By {{comment.user.name}}</p>
-    <p class="">{{comment.createdAt}}</p>
+    <p>{{comment.createdAt}}</p>
   </div>
   {{/each}}
 </div>
@@ -21,7 +22,7 @@
 <div class="d-flex flex-wrap m-2 p-2 bg-success justify-content-center border">
   <h5 class="font-weight-bolder text-dark bg-white p-1 flex-fill">New Comment</h5>
   <textarea class="form-control" id="comment"></textarea>
-  <button id="leaveComment" class="btn btn-success btn-lg btn-block">Submit Comment</button>
+  <button id="leaveComment" class="mt-4 btn btn-success btn-lg btn-block">Submit Comment</button>
 </div>
 
 <script src="/js/comment.js"></script>
