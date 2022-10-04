@@ -114,9 +114,6 @@ router.get('/login', (req, res) => {
 });
 
 router.post('/comment', async (req, res)=>{
-   const user_id = req.session.user_id;
-   req.body.user_id = user_id
-   console.log(req.body);
     try{
     const newComment = await Comments.create({
         ...req.body,
@@ -126,6 +123,6 @@ router.post('/comment', async (req, res)=>{
    } catch (err){
     res.status(400).json(err);
    }
-})
+});
 
 module.exports = router;
