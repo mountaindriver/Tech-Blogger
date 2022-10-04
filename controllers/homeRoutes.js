@@ -92,10 +92,10 @@ router.get('/dashboard', withAuth, async (req, res) => {
            ]
         })
 
-        const blog = blogData.map((blog)=> blog.get({ plain: true }));
-        console.log(blog);
+        const blogPosts = blogData.map((blog)=> blog.get({ plain: true }));
+        console.log(blogPosts);
         res.render('dashboard', {
-            blog,
+            blogPosts,
             logged_in: req.session.logged_in
         });
 
@@ -103,6 +103,18 @@ router.get('/dashboard', withAuth, async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+router.post('/dashboard', withAuth, async (req, res)=>{
+    try{
+        const newBlog = await Blog.create({
+            ...req.body,
+            user_id: req.session.user_id,
+        });
+        res.status(200).json(newBlog);
+    } catch (err){
+        res.status(400).json(err);
+    }
+})
 
 router.get('/login', (req, res) => {
     // If the user is already logged in, redirect the request to another route

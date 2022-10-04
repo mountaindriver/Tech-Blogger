@@ -1,13 +1,10 @@
-  <div class="d-flex flex-wrap mx-4">
-    {{#each blogPosts as |blog| }}
-    <div class="card m-2 bg-success" style="width: 18rem;">
-      <div class="card-body">
-        <a href="/post/{{blog.id}}">
-          <h5 class="font-weight-bolder text-dark bg-white p-1">{{blog.name}}</h5>
-        </a>
-        <p class="text-white">{{blog.description}}</p>
-        <p class="text-white">{{blog.createdAt}}</p>
-      </div>
-    </div>
-    {{/each}}
-  </div>
+{{#each blogPosts as |blog| }}
+<div class=" my-2 p-2 bg-success border">
+  <a href="/post/{{blog.id}}">
+    <h5 class="font-weight-bolder text-dark bg-white p-1">{{blog.name}}</h5>
+  </a>
+  <p class="text-white">{{blog.description}}</p>
+  <p class="text-white">{{blog.createdAt}}</p>
+  <p>By: {{blog.user.name}}</p>
+</div>
+{{/each}}

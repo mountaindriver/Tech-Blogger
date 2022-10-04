@@ -1,22 +1,27 @@
-<div class="card m-2 bg-success">
+<div class="m-2 p-2 border bg-success">
   <a href="dashboard/{{blog.id}}"></a>
   <h5 class="font-weight-bolder text-dark bg-white p-1">{{blog.name}}</h5>
   <p class="text-white">{{blog.description}}</p>
-  <p class="text-white">Created by: {{blog.user.name}}</p>
+  <p class="text-white">By: {{blog.user.name}}</p>
   <p class="text-white">{{blog.createdAt}}</p>
 </div>
-<div class="card m-2 bg-success">
+
+{{#if blog.comments}}
+<div class="d-flex flex-wrap m-2 p-2 bg-success justify-content-center border">
   {{#each blog.comments as |comment|}}
-  <div class="text-dark bg-light p-1 m-2" style="width: 18rem;">
+  <div class="text-dark bg-light p-1 m-2" >
     <p>{{comment.comments}}</p>
     <p class="font-weight-bold">By {{comment.user.name}}</p>
+    <p class="">{{comment.createdAt}}</p>
   </div>
   {{/each}}
 </div>
-<div class="ml-2">
-  <textarea name="comment" id="comment" cols="35" rows="3"></textarea>
-  <br>
-  <button id="leaveComment" class="btn btn-success">Leave a comment</button>
+{{/if}}
+
+<div class="d-flex flex-wrap m-2 p-2 bg-success justify-content-center border">
+  <h5 class="font-weight-bolder text-dark bg-white p-1 flex-fill">New Comment</h5>
+  <textarea class="form-control" id="comment"></textarea>
+  <button id="leaveComment" class="btn btn-success btn-lg btn-block">Submit Comment</button>
 </div>
 
 <script src="/js/comment.js"></script>

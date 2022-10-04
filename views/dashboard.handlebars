@@ -1,15 +1,25 @@
-<h3 class="text-light">Welcome {{blog.[0].user.name}}!</h3>
-
-<div class="d-flex flex-wrap mx-4">
-    {{#each blog as |blog1| }}
-    <div class="card m-2 bg-success" style="width: 18rem;">
-        <div class="card-body">
-            <a href="/post/{{blog1.id}}">
-                <h5 class="font-weight-bolder text-dark bg-white p-1">{{blog1.name}}</h5>
-            </a>
-            <p>Created by: {{blog1.user.name}}</p>
-            <p class="text-white">{{blog1.description}}</p>
-        </div>
+<div class="d-flex mx-4">
+    {{#each blogPosts as |blog| }}
+    <div class="m-2 p-2 bg-success border">
+        <a href="/post/{{blog.id}}">
+            <h5 class="font-weight-bolder border text-dark bg-white p-1">{{blog.name}}</h5>
+        </a>
+        <p class="text-white">{{blog.description}}</p>
+        <p class="text-white">{{blog.createdAt}}</p>
+        <p>By: {{blog.user.name}}</p>
     </div>
     {{/each}}
+    <div class="m-2 p-2 bg-success border">
+        <div class="mt-2">
+            <h3 class="font-weight-bolder border text-dark rounded-pill bg-white p-1 text-center">Title:</h3>
+            <input class="form-control" type="text" name="title" id="blogName">
+        </div>
+        <div class="mt-4">
+            <h3 class="font-weight-bolder border text-dark rounded-pill bg-white p-1 text-center ">Description:</h3>
+            <textarea class="form-control" id="blogDescription" cols="30" rows="10"></textarea>
+        </div>
+        <button id="postBlog" class="btn btn-success btn-lg btn-block">Post Blog</button>
+    </div>
 </div>
+
+<script src="/js/blog.js"></script>

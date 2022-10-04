@@ -11,31 +11,29 @@
 </head>
 
 <body class="bg-secondary">
-    <header class="bg-success sticky-top rounded-bottom">
-      <nav>
-        <ul class="btn-group">
-          <a class="btn btn-secondary border m-2 rounded-pill p-3" href="/">Home</a>
-          {{#if logged_in}}
-          <a class="btn btn-secondary border m-2 rounded-pill p-3" href="/dashboard">Dashboard</a>
-          <a id="logout" class="btn btn-secondary border m-2 rounded-pill p-3" href="">Logout</a>
-          {{else}}
-          <a class="btn btn-secondary border m-2 rounded-pill p-3" href="/login">Login</a>
-          {{/if}}
-        </ul>
-      </nav>
-      <div class="bg-sucess">
-      <h1 class="bg-secondary text-white border border-outline-white p-3 ml-5" style="width: 20rem;">The Tech Blog</h1>
-      </div>
-      <br>
-    </header>
+  <header class="bg-success sticky-top rounded-bottom pb-3">
+    <nav class="mb-3 ml-3">
+      <a class="btn btn-secondary border m-1 rounded-pill p-3" href="/">Home</a>
+      {{#if logged_in}}
+      <a class="btn btn-secondary border m-1 rounded-pill p-3" href="/dashboard">Dashboard</a>
+      <a id="logout" class="btn btn-secondary border m-1 rounded-pill p-3" href="">Logout</a>
+      {{else}}
+      <a class="btn btn-secondary border m-1 rounded-pill p-3" href="/login">Login</a>
+      {{/if}}
+    </nav>
+    <h1 class="bg-secondary text-white border border-outline-white p-3 ml-sm-4 ml-2 " style="width: 20rem;">The Tech
+      Blog</h1>
+  </header>
 
-    <main class="container container-fluid mt-5">
-      <!-- Render the sub layout -->
+  <main class="container container-fluid mt-5">
+    <!-- Render the sub layout -->
+    <div class="d-flex flex-wrap mx-4">
       {{{ body }}}
-    </main>
-    <footer>
+    </div>
+  </main>
+  <footer>
 
-    </footer>
+  </footer>
 
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
