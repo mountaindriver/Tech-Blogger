@@ -1,4 +1,4 @@
-const postBlog = async (event)=>{
+const postBlog = async (event) => {
     event.preventDefault();
 
     const name = document.querySelector('#blogName').value.trim();
@@ -6,11 +6,12 @@ const postBlog = async (event)=>{
 
     console.log(name);
     console.log(description);
-    const response = await fetch('/dashboard', {
+    
+    const response = await fetch('/api/blog/', {
         method: 'POST',
         body: JSON.stringify({ name, description }),
         headers: { 'Content-Type': 'application/json' },
-        
+
     })
     window.location.reload();
 }

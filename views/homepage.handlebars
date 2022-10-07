@@ -4,7 +4,7 @@
     <h5 class="font-weight-bolder text-dark bg-white p-1">{{blog.name}}</h5>
   </a>
   <p class="text-white">{{blog.description}}</p>
-  <p class="text-white">{{blog.createdAt}}</p>
+  <p class="text-white">{{formate_date blog.createdAt}}</p>
   <p>By: {{blog.user.name}}</p>
 </div>
 {{/each}}

@@ -3,7 +3,8 @@
   <h5 class="font-weight-bolder text-dark bg-white p-1">{{blog.name}}</h5>
   <p class="text-white">{{blog.description}}</p>
   <p class="text-white">By: {{blog.user.name}}</p>
-  <p class="text-white">{{blog.createdAt}}</p>
+  <p class="text-white">{{formate_date blog.createdAt}}</p>
+  <a href="/post/update/{{blog.id}}" id="updatePost" type="button" class="btn btn-primary" data-id="{{blog.id}}">Update</a>
   <button id="deletePost" type="button" class="btn btn-danger" data-id="{{blog.id}}">Delete Blog Post</button>
 </div>
 
@@ -13,7 +14,7 @@
   <div class="text-dark bg-light p-1 m-2" >
     <p>{{comment.comments}}</p>
     <p class="font-weight-bold">By {{comment.user.name}}</p>
-    <p>{{comment.createdAt}}</p>
+    <p>{{formate_date comment.createdAt}}</p>
   </div>
   {{/each}}
 </div>

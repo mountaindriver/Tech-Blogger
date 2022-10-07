@@ -4,7 +4,7 @@ const leaveComment = async (event) => {
     const blog_id = window.location.pathname.split('/')[2];
     const comments = document.querySelector('#comment').value.trim();
 
-    const response = await fetch('/comment', {
+    const response = await fetch('/api/comment/', {
         method: 'POST',
         body: JSON.stringify({ blog_id, comments }),
         headers: { 'Content-Type': 'application/json' },
@@ -16,7 +16,7 @@ const deletePost = async (event) => {
     if (event.target.hasAttribute('data-id')) {
         const id = event.target.getAttribute('data-id');
         
-        const response = await fetch(`/${id}`, {
+        const response = await fetch(`/api/blog/${id}`, {
             method: 'DELETE',
         });
 
@@ -25,8 +25,6 @@ const deletePost = async (event) => {
         } else {
             alert('Failed to delete Blog post');
         }
-    } else {
-        console.log('something went wrong')
     }
 }
 
