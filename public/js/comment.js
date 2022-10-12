@@ -10,7 +10,7 @@ const leaveComment = async (event) => {
         headers: { 'Content-Type': 'application/json' },
     })
     window.location.reload();
-}
+};
 
 const deletePost = async (event) => {
     if (event.target.hasAttribute('data-id')) {
@@ -26,7 +26,7 @@ const deletePost = async (event) => {
             alert('Failed to delete Blog post');
         }
     }
-}
+};
 
 document.querySelector('#leaveComment').addEventListener('click', leaveComment);
 document.querySelector('#deletePost').addEventListener('click', deletePost);
