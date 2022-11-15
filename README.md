@@ -13,7 +13,7 @@
         </p>
   </div>
 
-  ![Tech Blogger Screenshot](img\screencapture-localhost-3001-2022-10-15-17_20_19.png "Tech Blogger Screenshot")
+  ![Tech Blogger](img\screencapture-localhost-3001-2022-10-15-17_20_19.png)
   
   
   <!-- TABLE OF CONTENTS -->
@@ -30,7 +30,7 @@
   
   ## Description
   
-  This is a Full Stack single page application that uses a mySQL Database and is hosted on Heroku.  It uses many differenet technology such as HTML, CSS, bootstrap, JavaScript, Express.js, Node.js, mySQL, Sequilize(mySQL ORM), bcrypt, and was developed with nodemon. The wesite is current live on (Heroku)[https://gentle-caverns-83915.herokuapp.com/login].
+  This is a Full Stack single page application that uses a mySQL Database and is hosted on Heroku.  It uses many differenet technology such as HTML, CSS, bootstrap, JavaScript, Express.js, Node.js, mySQL, Sequilize(mySQL ORM), bcrypt, Handlebars, and was developed with nodemon. The wesite is current live on (Heroku)[https://gentle-caverns-83915.herokuapp.com/login].
   
   
   <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -44,7 +44,7 @@
   
   ## Contributing
   
-  Lucas Freigenberg
+  Lucas Freigenberg-Full Stack Developer
   
   <p align="right">(<a href="#readme-top">back to top</a>)</p>
   
