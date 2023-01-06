@@ -55,3 +55,5 @@
   <p align="left">Linkedin: <a href="#https://www.linkedin.com/in/lucas-freigenberg-539338134/">lucas-freigenberg</a></p>
   <p align="left">Github: <a href="#https://github.com/mountaindriver">mountaindriver</a></p>
   <p align="left">Email: <a href="#Lsfreigenberg@outlook.com">Lsfreigenberg@outlook.com</a></p>
+
+  <p align="right">(<a href="#top">back to top</a>)</p>
